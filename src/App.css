@@ -24,6 +24,22 @@
   color: white;
 }
 
+.NavBar {
+  width: 100%;
+  background-color: rgb(88, 216, 216);
+  top: 0;
+  position: fixed;
+}
+
+.ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.li {
+  margin-right: 50px;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -32,6 +48,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
