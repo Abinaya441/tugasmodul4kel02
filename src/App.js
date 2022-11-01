@@ -24,9 +24,6 @@ function App() {
               <Link to="/context">Use Context</Link>
             </li>
             <li className="li">
-              <Link to="/placeholder">Placeholder</Link>
-            </li>
-            <li className="li">
               <Link to="/CounterOne">Use Reducer</Link>
             </li>
           </ul>
@@ -35,7 +32,6 @@ function App() {
           <Route path="/" exact element={<State />} />
           <Route path="/effect" exact element={<Effect />} />
           <Route path="/context" exact element={<Context />} />
-          {/* <Route path="/placeholder" exact element={<Placeholder />} /> */}
           <Route path="/CounterOne" exact element={<CounterOne />} />
         </Routes>
       </div>
