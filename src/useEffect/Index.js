@@ -2,19 +2,33 @@ import React, { useState, useEffect } from "react";
 import "./Index.css";
 export default function Index() {
 const [resourceType, setResourceType] = useState('posts')
+const [items, setItems] = useState([])
+
+console.log('render')
 
 useEffect(() =>{
-console.log('render')
-})
+    // console.log('resource type changed')
+    fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
+            .then(response => response.json())
+            .then(json => setItems(json))
+}, [resourceType])
 
 return(
     <>
     <div>
+        Delok isi JSON API ne Begs<br></br>
         <button onClick ={() => setResourceType('posts')}>Posts</button>
-        <button onClick ={() => setResourceType('posts')}>Users</button>
-        <button onClick ={() => setResourceType('posts')}>Comments</button>
+        <button onClick ={() => setResourceType('users')}>Users</button>
+        <button onClick ={() => setResourceType('comments')}>Comments</button>
     </div>
     <h1>{resourceType}</h1>
+
+    {items.map(item => {
+
+        return <div>{JSON.stringify(item)}</div>
+
+    })}
+
     </>
 )
 }
