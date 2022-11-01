@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import State from "./useState/Index";
 import Effect from "./useEffect/Index";
 import Context from "./useContext/Index";
+import CounterOne from "./useReducer/CounterOne"
 // import Placeholder from "./placeholder";
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
             <li className="li">
               <Link to="/placeholder">Placeholder</Link>
             </li>
+            <li className="li">
+              <Link to="/CounterOne">Use Reducer</Link>
+            </li>
           </ul>
         </nav>
         <Routes>
@@ -32,6 +36,7 @@ function App() {
           <Route path="/effect" exact element={<Effect />} />
           <Route path="/context" exact element={<Context />} />
           {/* <Route path="/placeholder" exact element={<Placeholder />} /> */}
+          <Route path="/CounterOne" exact element={<CounterOne />} />
         </Routes>
       </div>
     </Router>
