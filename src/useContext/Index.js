@@ -1,51 +1,27 @@
-import React, { useState, useContext } from "react";
-import "./Index.css";
-const themes = {
-    light: {
-        id: 1,
-        foreground: "#000000",
-        background: "#eeeeee",
-    },
-    dark: {
-        id: 2,
-        foreground: "#ffffff",
-        background: "#222222",
-    },
+import React, { useContext } from 'react'
+
+const Nama = React.createContext()
+const Kelompok = React.createContext()
+
+const Komponen = () => {
+  return (
+    <Nama.Provider value={'Praktikan'}>
+      <Kelompok.Provider value={'02'}>
+        <IsiKomponen />
+      </Kelompok.Provider>
+    </Nama.Provider>
+  )
 }
-const ThemeContext = React.createContext(themes.light);
-export default function Index() {
-    const [theme, setTheme] = useState(themes.dark);
-    const changeTheme = () => {
-        if (theme.id === themes.light.id) {
-            setTheme(themes.dark);
-        } else {
-            setTheme(themes.light);
-        }
-    };
-    return (
-        <ThemeContext.Provider value={{ theme, changeTheme }}>
-            <div className="Main" style={{
-                background:
-                    theme.background, color: theme.foreground
-            }}>
-                <p className="Text">Theme by useContext</p>
-                <p>KELOMPOK 02</p>
-                <ThemedButton />
-            </div>
-        </ThemeContext.Provider>
-    );
+
+const IsiKomponen = () => {
+  const nama = useContext(Nama)
+  const kelompok = useContext(Kelompok)
+
+  return (
+    <h1>
+      Halo Saya {nama} dari kelompok {kelompok} sedang belajar React Hooks.
+    </h1>
+  )
 }
-function ThemedButton() {
-    const { theme, changeTheme } = useContext(ThemeContext);
-    return (
-        <button
-            className="Button"
-            style={{
-                background: theme.background, color:
-                    theme.foreground
-            }}
-            onClick={changeTheme}>
-            i am styled by theme context!
-        </button>
-    );
-}
+
+export default Komponen;
