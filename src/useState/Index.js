@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import Komponen from "../useContext/Index";
+
 export default function Index() {
     const [text, setText] = useState("");
     return (
+        <><Komponen />
         <div className="App">
             <h1>Tugas Modul 4 Praktikum RPLBK Kelompok 02</h1>
             <p>Defin Friko Fahdani 21120119130054</p>
