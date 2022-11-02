@@ -7,7 +7,6 @@ const [items, setItems] = useState([])
 console.log('render')
 
 useEffect(() =>{
-    // console.log('resource type changed')
     fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
             .then(response => response.json())
             .then(json => setItems(json))
@@ -15,78 +14,27 @@ useEffect(() =>{
 
 return(
     <>
+        <h2>Isi API dari JSONPlaceholder</h2>
     <div>
-        Delok isi JSON API ne Begs<br></br>
-        <button onClick ={() => setResourceType('posts')}>Posts</button>
-        <button onClick ={() => setResourceType('users')}>Users</button>
-        <button onClick ={() => setResourceType('comments')}>Comments</button>
+        <button className="Button" onClick ={() => setResourceType('posts')}>Posts</button>
+        <button className="Button" onClick ={() => setResourceType('users')}>Users</button>
+        <button className="Button" onClick ={() => setResourceType('comments')}>Comments</button>
     </div>
-    <h1>{resourceType}</h1>
+    
+    <h2>{resourceType}</h2>
 
-    {items.map(item => {
-
-        return <div>{JSON.stringify(item)}</div>
-
+    {items.slice(0,20).map(item => {
+        return <div>
+            <h3>{item.title}</h3>
+            <h3>{item.name}</h3>
+            <p>{item.username}</p>
+            <p>{item.email}</p>
+            <p>{item.phone}</p>
+            <p>{item.website}</p>
+            <p>{item.body}</p>
+            </div>
     })}
 
     </>
 )
 }
-
-    //Jaga jaga nek rusak
-    // const [count, setCount] = useState(0);
-    // const [data, setData] = useState([]);
-    // //dijalankan 1 kali
-    // useEffect(() => {
-    //     fetch('https://jsonplaceholder.typicode.com/todos')
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             console.log(data);
-    //             setData(data);
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // }, []);
-    // //dijalankan terus setiap ada perubahan count
-    // useEffect(() => {
-    //     if (count > 0) {
-    //         alert('component will update & count ${count}');
-    //     }
-    // }, [count]);
-    // //dijalankan terus menerus
-    // useEffect(() => {
-    //     console.log('spam console kuy');
-    // });
-    // const countUp = () => {
-    //     setCount(count + 1);
-    // };
-    // const countDown = () => {
-    //     setCount(count - 1);
-    // };
-    // return (
-    //     <div className="Main">
-    //         <p className="Text"> Learn useEffect</p>
-    //         <p>KELOMPOK 02</p>
-    //         <ul>
-    //             {data.slice(0, 10).map((value) => (
-    //                 <li key={value.id}>{value.title}</li>
-    //             ))}
-    //         </ul>
-    //         <p className="Text">{count}</p>
-    //         <div className="ViewButton">
-    //             <div className="ViewButton2">
-    //                 <button className="Button"
-    //                     onClick={countUp}>
-    //                     Up
-    //                 </button>
-    //             </div>
-    //             <div className="ViewButton1">
-    //                 <button className="Button"
-    //                     onClick={countDown}>
-    //                     Down
-    //                 </button>
-    //             </div>
-    //         </div>
-    //     </div>
-    // );

@@ -6,7 +6,6 @@ import State from "./useState/Index";
 import Effect from "./useEffect/Index";
 import Context from "./useContext/Index";
 import CounterOne from "./useReducer/CounterOne"
-// import Placeholder from "./placeholder";
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
               <Link to="/context">Use Context</Link>
             </li>
             <li className="li">
-              <Link to="/CounterOne">Use Reducer</Link>
+              <Link to="/reducer">Use Reducer</Link>
             </li>
           </ul>
         </nav>
@@ -32,7 +31,7 @@ function App() {
           <Route path="/" exact element={<State />} />
           <Route path="/effect" exact element={<Effect />} />
           <Route path="/context" exact element={<Context />} />
-          <Route path="/CounterOne" exact element={<CounterOne />} />
+          <Route path="/reducer" exact element={<CounterOne />} />
         </Routes>
       </div>
     </Router>
